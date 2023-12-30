@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Amor</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-image: url('"C:\Users\Lenovo\Downloads\IMG-20231018-WA0056.jpg"');
+      background-size: cover;
+      background-position: center;
+      color: red;
+      margin: 01; /* Remove default margin */
+    }
+
+    h1, p, button, #teAmoOutput {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 600px) {
+      h1, p, button, #teAmoOutput {
+        max-width: 90%;
+      }
+    }
+  </style>
+  <script>
+    function playLoveGame() {
+      var correctAnswer = "amor";
+      var clues = [
+        "¡Uy! Esta no es correcto. Aquí está la primera pista: Es una palabra con cuatro letras.",
+        "Sigue sin aparecer. Aquí está la segunda pista: Es algo entre nosotros.",
+        "Lo siento, no lo has adivinado bien. ¡Mejor suerte la próxima vez!"
+      ];
+
+      var attemptsLeft = 3;
+
+      alert("¡Atención! Todas las letras deben estar escritas en minúsculas.");
+
+      while (attemptsLeft > 0) {
+        var answer = prompt("¿Puedes adivinar la palabra mágica?");
+        if (answer && answer.toLowerCase() === correctAnswer) {
+          var teAmoElement = document.getElementById("teAmoOutput");
+          for (var i = 0; i < 1000; i++) {
+            teAmoElement.innerHTML += "Te amo Daniela mi amor. La chica mas guapa del mundo.<br>";
+          }
+          alert("¡Felicidades! Te amo Daniela mi amor. La chica mas guapa del mundo. ❤️");
+          break;
+        } else {
+          var clueIndex = 3 - attemptsLeft;
+          alert(clues[clueIndex]);
+          attemptsLeft--;
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Bienvenida al Juego de Adivinanza del Amor</h1>
+  <p>Intenta adivinar la palabra mágica y siente el amor.</p>
+  <button onclick="playLoveGame()">Jugar ahora</button>
+  <div id="teAmoOutput"></div>
+</body>
+</html>
